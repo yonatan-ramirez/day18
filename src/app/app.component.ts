@@ -2,7 +2,17 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  template: `
+  <h1> {{ types }} </h1>
+    <ul>
+    <p [ngStyle]="{'text-transform': capitalize}">
+  Hello!
+    </p>
+      <li *ngFor = "let type of types; let i = index">
+{{ type }} {{ i }}
+      </li>
+    </ul>
+  `,
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
@@ -29,7 +39,9 @@ export class AppComponent {
 
   types = [this.bools, this.nums, this.strs];
 
+
   getTypeof(type) {
     return typeof type;
   }
+
  }
