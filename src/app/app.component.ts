@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -29,7 +30,8 @@ export class AppComponent {
 
   types = [this.bools, this.nums, this.strs];
 
-  getTypeof(type) {
-    return typeof type;
+  // method is getTypeof and th argument is in the () and the argument wants any so (x: any)
+  getTypeof(x: any) {
+    return typeof x;
   }
  }
