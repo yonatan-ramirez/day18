@@ -5,11 +5,15 @@ import { Component } from '@angular/core';
   template: `
   <h1> {{ types }} </h1>
     <ul>
-    <p [ngStyle]="{'text-transform': capitalize}">
-  Hello!
-    </p>
       <li *ngFor = "let type of types; let i = index">
-{{ type }} {{ i }}
+        <p style ="text-transform: capitalize">
+        {{ getTypeof(type[0]) }}
+        </p>
+        <ul>
+          <li *ngFor="let val of type">
+          {{ getTypeof(val) == 'object' ? val.name + ' ' + val.id : val }}
+          </li>
+        </ul>
       </li>
     </ul>
   `,
